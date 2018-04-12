@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\ExistsFilter;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -35,6 +36,20 @@ class Gerard
      */
     public $name = '';
 
+    /**
+     * @var string A nice person
+     *
+     * @ORM\ManyToMany(targetEntity="Greeting")
+     * @ApiFilter(ExistsFilter::class)
+     */
+    public $greetings;
+
+    /**
+     * @var string A nice person
+     *
+     * @ORM\ManyToMany(targetEntity="Hello")
+     */
+    public $hellos;
 
     public function __construct()
     {
