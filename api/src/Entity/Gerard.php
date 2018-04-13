@@ -37,7 +37,7 @@ class Gerard
     public $name = '';
 
     /**
-     * @var string A nice person
+     * @var array some greetings
      *
      * @ORM\ManyToMany(targetEntity="Greeting")
      * @ApiFilter(ExistsFilter::class)
@@ -45,7 +45,7 @@ class Gerard
     public $greetings;
 
     /**
-     * @var string A nice person
+     * @var array some hellos
      *
      * @ORM\ManyToMany(targetEntity="Hello")
      */
